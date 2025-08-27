@@ -123,7 +123,7 @@ export default function LandingPage() {
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               See what journalists and researchers say about News Contrast AI
             </p>
-          </div>
+          </div> 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
