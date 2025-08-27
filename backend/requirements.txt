@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+newspaper3k
+transformers
+torch
+sentence-transformers
+faiss-cpu
+scikit-learn
+pillow
+imagehash
+spacy
+httpx
+datasets
+python-multipart
+sentence-transformers
+beautifulsoup4
+lxml
