@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Shield, Zap, Target, Users } from "lucide-react";
-// Import your Button and Card components (or use simple HTML tags)
+import { Link as ScrollLink } from "react-scroll"; // smooth scroll
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 
@@ -8,27 +8,50 @@ export default function LandingPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <header className="border-b border-border">
+      <header className="border-b border-border fixed w-full bg-background z-50">
         <div className="container mx-auto max-w-6xl px-4 py-4">
           <div className="flex items-center justify-between">
+            {/* Logo */}
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-primary text-primary-foreground rounded-lg flex items-center justify-center font-bold">
                 N
               </div>
               <span className="text-xl font-bold">News Contrast AI</span>
             </div>
-            <nav className="hidden md:flex items-center space-x-6">
-              <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
+
+            {/* Nav */}
+            <nav className="flex items-center space-x-6">
+              <ScrollLink
+                to="features"
+                smooth={true}
+                duration={600}
+                offset={-80}
+                className="cursor-pointer text-muted-foreground hover:text-foreground transition-colors"
+              >
                 Features
-              </a>
-              <a href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-colors">
+              </ScrollLink>
+              <ScrollLink
+                to="how-it-works"
+                smooth={true}
+                duration={600}
+                offset={-80}
+                className="cursor-pointer text-muted-foreground hover:text-foreground transition-colors"
+              >
                 How It Works
-              </a>
-              <a href="#testimonials" className="text-muted-foreground hover:text-foreground transition-colors">
+              </ScrollLink>
+              <ScrollLink
+                to="testimonials"
+                smooth={true}
+                duration={600}
+                offset={-80}
+                className="cursor-pointer text-muted-foreground hover:text-foreground transition-colors"
+              >
                 Reviews
-              </a>
-              <Link href="/analyze">
-                <Button className="bg-primary text-primary-foreground hover:bg-primary/90">Try It Now</Button>
+              </ScrollLink>
+              <Link to="/analyze">
+                <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
+                  Try It Now
+                </Button>
               </Link>
             </nav>
           </div>
@@ -36,7 +59,7 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 px-4">
+      <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto max-w-6xl text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance">
             Detect Fake News
@@ -47,13 +70,19 @@ export default function LandingPage() {
           </p>
           <div className="flex gap-4 justify-center items-center">
             <Link to="/analyze">
-                <button className="bg-primary text-black px-6 py-2 rounded-md hover:bg-primary/90 transition text-base font-medium">
+              <button className="cursor-pointer bg-primary text-black px-6 py-2 rounded-md hover:bg-primary/90 transition text-base font-medium">
                 Start Analyzing
-                </button>
+              </button>
             </Link>
-            <button className="bg-black text-white px-6 py-2 rounded-md hover:bg-gray-800 transition text-base font-medium">
-                Watch Demo
-            </button>
+            <ScrollLink
+              to="features"
+              smooth={true}
+              duration={600}
+              offset={-80}
+              className="cursor-pointer bg-black text-white px-6 py-2 rounded-md hover:bg-gray-800 transition text-base font-medium"
+            >
+              Watch Demo
+            </ScrollLink>
           </div>
         </div>
       </section>
@@ -68,7 +97,7 @@ export default function LandingPage() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[ 
+            {[
               { icon: Shield, title: "Real-time Detection", description: "Instant analysis of headlines and articles with advanced AI models" },
               { icon: Zap, title: "Lightning Fast", description: "Get results in seconds with our optimized processing pipeline" },
               { icon: Target, title: "High Accuracy", description: "Trained on millions of verified news articles for precise detection" },
@@ -98,7 +127,7 @@ export default function LandingPage() {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            {[ 
+            {[
               { step: 1, title: "Paste Your Text", description: "Copy and paste any news headline or article you want to verify" },
               { step: 2, title: "AI Analysis", description: "Our AI analyzes language patterns, sources, and credibility indicators" },
               { step: 3, title: "Get Results", description: "Receive detailed analysis with credibility score and explanations" }
@@ -123,7 +152,7 @@ export default function LandingPage() {
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               See what journalists and researchers say about News Contrast AI
             </p>
-          </div> 
+          </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
@@ -183,20 +212,24 @@ export default function LandingPage() {
       <footer className="border-t border-border py-12 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-3 mb-4 md:mb-0">
+            <div className="flex items-center space-x-3 mb-4 md:mb-2">
               <div className="w-8 h-8 bg-primary text-primary-foreground rounded-lg flex items-center justify-center font-bold">
                 N
               </div>
               <span className="text-xl font-bold">News Contrast AI</span>
             </div>
-            <div className="flex space-x-6 text-sm text-muted-foreground">
-              <a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-foreground transition-colors">Terms of Service</a>
+            <div className="flex space-x-3 mb-4 text-sm text-muted-foreground">
+              <Link to="/privacy" className="hover:text-foreground transition-colors">
+                Privacy Policy
+              </Link>
+              <Link to="/terms" className="hover:text-foreground transition-colors">
+                Terms of Service
+              </Link>
               <a href="#" className="hover:text-foreground transition-colors">Contact</a>
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-            <p>&copy; 2024 News Contrast AI. All rights reserved.</p>
+            <p>&copy; 2025 News Contrast AI. All rights reserved.</p>
           </div>
         </div>
       </footer>
