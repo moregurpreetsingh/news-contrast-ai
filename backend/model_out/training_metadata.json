@@ -1,0 +1,19 @@
+{
+  "model_name": "simple_fake_news_detector",
+  "model_type": "sklearn_logistic_regression",
+  "vectorizer_type": "tfidf",
+  "train_samples": 29,
+  "final_metrics": {
+    "eval_accuracy": 0.8333333333333334,
+    "eval_f1": 0.8571428571428571
+  },
+  "trained_at": "2025-08-28T19:26:02.493515",
+  "features": {
+    "max_features": 10000,
+    "ngram_range": [
+      1,
+      2
+    ],
+    "stop_words": "english"
+  }
+}
